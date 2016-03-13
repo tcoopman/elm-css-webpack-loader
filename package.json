@@ -1,0 +1,16 @@
+{
+  "name": "elm-css-webpack-loader",
+  "version": "1.0.0",
+  "description": "elm-css webpack loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "elm-css": "^0.4.0",
+    "loader-utils": "^0.2.12",
+    "node-elm-compiler": "^3.0.0"
+  }
+}
