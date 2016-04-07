@@ -4,6 +4,7 @@ var _ = require('lodash');
 var loaderUtils = require('loader-utils');
 var elmCompiler = require('node-elm-compiler');
 var elmCss = require('elm-css');
+var temp = require('temp').track();
 
 var cachedDependencies = [];
 
@@ -48,9 +49,20 @@ module.exports = function() {
       }
     }.bind(this));
 
-  elmCss('.', input, './tmp')
-    .then(output => callback(null, output.map(o => o.content).join('')))
-    .catch(err => {
-      callback('Compiler process exited with error ' + err);
-    });
+	temp.mkdir('cssTemp', (err, dirPath) => {
+		if (err) {
+			callback('Could not create a temp directory ' + err);
+		}
+		elmCss('.', input, dirPath)
+			.then(output => {
+				callback(null, output.map(o => o.content).join(''))
+				temp.cleanupSync();
+			})
+			.catch(err => {
+				callback('Compiler process exited with error ' + err);
+				temp.cleanupSync();
+			});
+	});
+
+
 };

@@ -11,6 +11,7 @@
   "dependencies": {
     "elm-css": "^0.4.0",
     "loader-utils": "^0.2.12",
-    "node-elm-compiler": "^3.0.0"
+    "node-elm-compiler": "^3.0.0",
+    "temp": "^0.8.3"
   }
 }
