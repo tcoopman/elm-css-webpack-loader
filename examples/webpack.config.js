@@ -28,9 +28,6 @@ module.exports = {
         loader: 'style!css!../index.js'
       }
     ],
-
-    // warning elm-css-loader doesn't work with noParse
-    // noParse: /\.elm$/
   },
 
   target: 'web',
