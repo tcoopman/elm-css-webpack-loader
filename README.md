@@ -1,4 +1,4 @@
-# Elm CSS loader
+# Elm CSS loader [![Travis build Status](https://travis-ci.org/tcoopman/elm-css-webpack-loader.svg?branch=master)](http://travis-ci.org/tcoopman/elm-css-webpack-loader)
 
 Webpack loader for [elm-css](https://github.com/rtfeldman/elm-css) library
 
