@@ -58,7 +58,7 @@ module.exports = function() {
 		}
 		elmCss('.', input, dirPath)
 			.then(output => {
-				callback(null, output.map(o => o.content).join(''))
+				callback(null, output.map(o => o.content).join(''));
 				temp.cleanupSync();
 			})
 			.catch(err => {
