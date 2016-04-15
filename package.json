@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:tcoopman/elm-css-webpack-loader.git"
-  },	
+  },
   "dependencies": {
     "elm-css": "^0.4.0",
     "loader-utils": "^0.2.12",
