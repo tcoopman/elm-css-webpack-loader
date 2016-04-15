@@ -4,7 +4,7 @@
   "description": "elm-css webpack loader",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/*.js"
   },
   "author": "Thomas Coopman @tcoopman",
   "license": {
@@ -14,11 +14,17 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:tcoopman/elm-css-webpack-loader.git"
-  },	
+  },
   "dependencies": {
     "elm-css": "^0.4.0",
     "loader-utils": "^0.2.12",
+    "lodash": "^3.10.1",
     "node-elm-compiler": "^3.0.0",
     "temp": "^0.8.3"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "csslint": "^0.10.0",
+    "mocha": "^2.3.4"
   }
 }

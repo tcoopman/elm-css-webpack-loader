@@ -27,7 +27,7 @@ module.exports = {
         test: /src\/Stylesheets.elm$/,
         loader: 'style!css!../index.js'
       }
-    ],
+    ]
   },
 
   target: 'web',

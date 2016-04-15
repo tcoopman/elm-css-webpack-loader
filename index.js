@@ -8,7 +8,10 @@ var temp = require('temp').track();
 
 var cachedDependencies = [];
 
+var validOptions = ['cwd', 'cache', 'yes', 'emitWarning'];
+
 var defaultOptions = {
+  cwd: ".",
   cache: false,
   yes: true
 };
@@ -42,23 +45,34 @@ module.exports = function() {
   var input = getInput.call(this);
   var options = getOptions.call(this);
 
+  var givenInvalidOptions = _.difference(_.keys(options), validOptions);
+
+  if (givenInvalidOptions.length > 0) {
+    var errMsg = 'Unknown elm-css options: ' + givenInvalidOptions;
+    throw errMsg;
+  }
+
   var dependencies = Promise.resolve()
     .then(function() {
       if (!options.cache || cachedDependencies.length === 0) {
         return elmCompiler.findAllDependencies(input).then(addDependencies.bind(this));
       }
+      else {
+        return null;
+      }
     }.bind(this));
 
-	temp.mkdir('cssTemp', (err, dirPath) => {
+	temp.mkdir('cssTemp', function(err, dirPath) {
 		if (err) {
 			callback('Could not create a temp directory ' + err);
 		}
-		elmCss('.', input, dirPath)
-			.then(output => {
-				callback(null, output.map(o => o.content).join(''))
+
+		elmCss(options.cwd, input, dirPath)
+			.then(function(output) {
+				callback(null, output.map(function(o) { return o.content; }).join(''));
 				temp.cleanupSync();
 			})
-			.catch(err => {
+			.catch(function(err) {
 				callback('Compiler process exited with error ' + err);
 				temp.cleanupSync();
 			});
