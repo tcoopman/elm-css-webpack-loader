@@ -8,6 +8,8 @@ var temp = require('temp').track();
 
 var cachedDependencies = [];
 
+var validOptions = ['cwd', 'cache', 'yes', 'emitWarning'];
+
 var defaultOptions = {
   cwd: ".",
   cache: false,
@@ -42,6 +44,13 @@ module.exports = function() {
 
   var input = getInput.call(this);
   var options = getOptions.call(this);
+
+  var givenInvalidOptions = _.difference(_.keys(options), validOptions);
+
+  if (givenInvalidOptions.length > 0) {
+    var errMsg = 'Unknown elm-css options: ' + givenInvalidOptions;
+    throw errMsg;
+  }
 
   var dependencies = Promise.resolve()
     .then(function() {
