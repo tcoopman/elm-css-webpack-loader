@@ -62,17 +62,17 @@ module.exports = function() {
       }
     }.bind(this));
 
-	temp.mkdir('cssTemp', (err, dirPath) => {
+	temp.mkdir('cssTemp', function(err, dirPath) {
 		if (err) {
 			callback('Could not create a temp directory ' + err);
 		}
 
 		elmCss(options.cwd, input, dirPath)
-			.then(output => {
-				callback(null, output.map(o => o.content).join(''));
+			.then(function(output) {
+				callback(null, output.map(function(o) { return o.content; }).join(''));
 				temp.cleanupSync();
 			})
-			.catch(err => {
+			.catch(function(err) {
 				callback('Compiler process exited with error ' + err);
 				temp.cleanupSync();
 			});
