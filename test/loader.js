@@ -84,7 +84,7 @@ describe('async mode', function () {
   };
 
   // Download of Elm may take a while.
-  this.timeout(650000);
+  this.timeout(700000);
 
   it('compiles the elm code to css', function (done) {
 
