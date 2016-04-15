@@ -47,6 +47,9 @@ module.exports = function() {
       if (!options.cache || cachedDependencies.length === 0) {
         return elmCompiler.findAllDependencies(input).then(addDependencies.bind(this));
       }
+      else {
+        return null;
+      }
     }.bind(this));
 
 	temp.mkdir('cssTemp', (err, dirPath) => {
