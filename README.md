@@ -66,3 +66,4 @@ Even though elm-webpack-loader suggests to set the `noParse` option,
 ### 1.0.0
 
 Initial release, compatible with `elm-css-2.0.0`
+
