@@ -9,6 +9,7 @@ var temp = require('temp').track();
 var cachedDependencies = [];
 
 var defaultOptions = {
+  cwd: ".",
   cache: false,
   yes: true
 };
@@ -56,7 +57,8 @@ module.exports = function() {
 		if (err) {
 			callback('Could not create a temp directory ' + err);
 		}
-		elmCss('.', input, dirPath)
+
+		elmCss(options.cwd, input, dirPath)
 			.then(output => {
 				callback(null, output.map(o => o.content).join(''));
 				temp.cleanupSync();
