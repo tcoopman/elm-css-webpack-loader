@@ -19,7 +19,7 @@
     "elm-css": "^0.4.0",
     "loader-utils": "^0.2.12",
     "lodash": "^3.10.1",
-    "node-elm-compiler": "^3.0.0",
+    "node-elm-compiler": "^4.0.1",
     "temp": "^0.8.3"
   },
   "devDependencies": {
