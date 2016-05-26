@@ -1,4 +1,4 @@
-module SharedStyles (..) where
+module SharedStyles exposing (..)
 
 type CssClasses
   = NavLink

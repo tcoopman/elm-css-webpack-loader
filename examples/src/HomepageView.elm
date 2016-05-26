@@ -1,10 +1,7 @@
-module HomepageView (..) where
+module HomepageView exposing (..)
 
 import Html exposing (..)
-import Html.CssHelpers exposing (..)
 import Html.Attributes exposing (..)
-import HomepageCss exposing (..)
-import Json.Encode as Encode
 import SharedStyles exposing (..)
 
 
@@ -12,7 +9,7 @@ import SharedStyles exposing (..)
   homepageNamespace
 
 
-main : Html
+main : Html a
 main =
   div
     []
@@ -31,7 +28,7 @@ main =
         [ img [ src "assets/banner.png" ] [] ]
     ]
 
-
+navElems : List (Html a)
 navElems =
   [ "SPEAKERS", "SCHEDULE", "WORKSHOPS", "VENUE", "BLOG", "CONTACT" ]
     |> List.map (\name -> span [ class [ NavLink ] ] [ text name ])
