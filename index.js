@@ -33,7 +33,7 @@ var addDependencies = function(dependencies) {
   dependencies.forEach(this.addDependency.bind(this));
 };
 
-module.exports = function() {
+module.exports = function run() {
   this.cacheable && this.cacheable();
 
   var callback = this.async();
@@ -77,6 +77,4 @@ module.exports = function() {
 				temp.cleanupSync();
 			});
 	});
-
-
 };
