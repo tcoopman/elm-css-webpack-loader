@@ -1,6 +1,6 @@
 {
   "name": "elm-css-webpack-loader",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "elm-css webpack loader",
   "main": "index.js",
   "scripts": {
