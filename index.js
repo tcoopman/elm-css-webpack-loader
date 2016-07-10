@@ -17,7 +17,7 @@ var defaultOptions = {
 };
 
 var getInput = function() {
-  return loaderUtils.getRemainingRequest(this);
+  return this.resourcePath;
 };
 
 var getOptions = function() {
