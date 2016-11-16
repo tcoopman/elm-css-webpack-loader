@@ -70,11 +70,9 @@ module.exports = function run() {
 		elmCss(options.cwd, input, dirPath)
 			.then(function(output) {
 				callback(null, output.map(function(o) { return o.content; }).join(''));
-				temp.cleanupSync();
 			})
 			.catch(function(err) {
 				callback('Compiler process exited with error ' + err);
-				temp.cleanupSync();
 			});
 	});
 };
