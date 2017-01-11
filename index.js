@@ -48,8 +48,7 @@ module.exports = function run() {
   var givenInvalidOptions = _.difference(_.keys(options), validOptions);
 
   if (givenInvalidOptions.length > 0) {
-    var errMsg = 'Unknown elm-css options: ' + givenInvalidOptions;
-    throw errMsg;
+    return callback(new Error('Unknown elm-css options: ' + givenInvalidOptions));
   }
 
   var dependencies = Promise.resolve()
@@ -64,7 +63,7 @@ module.exports = function run() {
 
 	temp.mkdir('cssTemp', function(err, dirPath) {
 		if (err) {
-			callback('Could not create a temp directory ' + err);
+			callback(new Error('Could not create a temp directory ' + err));
 		}
 
 		elmCss(options.cwd, input, dirPath)
@@ -72,7 +71,7 @@ module.exports = function run() {
 				callback(null, output.map(function(o) { return o.content; }).join(''));
 			})
 			.catch(function(err) {
-				callback('Compiler process exited with error ' + err);
+				callback(new Error('Compiler process exited with error ' + err));
 			});
 	});
 };
