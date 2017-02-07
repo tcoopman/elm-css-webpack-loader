@@ -56,10 +56,10 @@ $ npm install
 $ npm run start
 ```
 
-### Note about noParse
+### `noParse` option
 
-Even though elm-webpack-loader suggests to set the `noParse` option,
-`elm-css-webpack-loader` requires this option, otherwise it won't work correctly.
+Although [elm-webpack-loader](https://github.com/elm-community/elm-webpack-loader) recommends setting the `noParse` option in your Webpack configuration,
+`elm-css-webpack-loader` requires that this option is not set in order to work correctly. If you get errors when using this loader you should ensure you are not setting this option. 
 
 ## Revisions
 
