@@ -7,19 +7,16 @@
     "test": "mocha test/*.js"
   },
   "author": "Thomas Coopman @tcoopman",
-  "license": {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/mit-license.php"
-  },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:tcoopman/elm-css-webpack-loader.git"
   },
   "dependencies": {
-    "elm-css": "^0.5.0",
-    "loader-utils": "^0.2.12",
-    "lodash": "^3.10.1",
-    "node-elm-compiler": "^4.0.1",
+    "elm-css": "^0.6.0",
+    "loader-utils": "^1.0.3",
+    "lodash": "^4.17.4",
+    "node-elm-compiler": "^4.3.0",
     "temp": "^0.8.3"
   },
   "devDependencies": {
