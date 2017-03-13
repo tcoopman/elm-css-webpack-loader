@@ -8,7 +8,7 @@ var temp = require('temp').track();
 
 var cachedDependencies = [];
 
-var validOptions = ['cwd', 'cache', 'yes', 'emitWarning'];
+var validOptions = ['cwd', 'cache', 'yes', 'emitWarning', 'debug'];
 
 var defaultOptions = {
   cwd: ".",
