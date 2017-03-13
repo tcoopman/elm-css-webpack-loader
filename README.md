@@ -1,4 +1,4 @@
-# Elm CSS loader [![Travis build Status](https://travis-ci.org/tcoopman/elm-css-webpack-loader.svg?branch=master)](http://travis-ci.org/tcoopman/elm-css-webpack-loader)
+# Elm CSS loader [![Travis build Status](https://travis-ci.org/jiwhiz/elm-css-webpack-loader.svg?branch=upgrade)](http://travis-ci.org/jiwhiz/elm-css-webpack-loader)
 
 Webpack loader for [elm-css](https://github.com/rtfeldman/elm-css) library
 
@@ -17,10 +17,24 @@ In your `webpack.config.js` file:
 ```js
 module.exports = {
   module: {
-    loaders: [{
-      test: /Stylesheets\.elm$/,
-      loader: "style!css!elm-css-webpack"
-    }]
+    rules: [
+      {
+        test:    /\.elm$/,
+        exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm$/],
+        use: [
+          'elm-hot-loader',
+          'elm-webpack-loader'
+        ] 
+      },
+      {
+        test: /Stylesheets\.elm$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'elm-css-webpack-loader'
+        ]
+      }
+    ]
   }
 };
 ```
@@ -56,12 +70,20 @@ $ npm install
 $ npm run start
 ```
 
+You can find a more advanced example at 
+[elm-bootstrap-webpack-starter](https://github.com/jiwhiz/elm-bootstrap-webpack-starter)
+
+
 ### Note about noParse
 
 Even though elm-webpack-loader suggests to set the `noParse` option,
 `elm-css-webpack-loader` requires this option, otherwise it won't work correctly.
 
 ## Revisions
+
+### 3.0.0
+
+Upgrade to Elm 0.18, elm-css-8.1.0
 
 ### 1.0.0
 
