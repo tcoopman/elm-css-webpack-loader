@@ -1,8 +1,16 @@
 module SharedStyles exposing (..)
 
+import Html.CssHelpers exposing (withNamespace)
+
+
 type CssClasses
-  = NavLink
+    = NavLink
+
 
 type CssIds
-  = ReactiveLogo
-  | BuyTickets
+    = ReactiveLogo
+    | BuyTickets
+
+
+homepageNamespace =
+    withNamespace "homepage"
