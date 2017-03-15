@@ -1,4 +1,4 @@
-# Elm CSS loader [![Travis build Status](https://travis-ci.org/jiwhiz/elm-css-webpack-loader.svg?branch=upgrade)](http://travis-ci.org/jiwhiz/elm-css-webpack-loader)
+# Elm CSS loader [![Travis build Status](https://travis-ci.org/tcoopman/elm-css-webpack-loader.svg?branch=upgrade)](http://travis-ci.org/tcoopman/elm-css-webpack-loader)
 
 Webpack loader for [elm-css](https://github.com/rtfeldman/elm-css) library
 
@@ -80,10 +80,6 @@ Even though elm-webpack-loader suggests to set the `noParse` option,
 `elm-css-webpack-loader` requires this option, otherwise it won't work correctly.
 
 ## Revisions
-
-### 3.0.0
-
-Upgrade to Elm 0.18, elm-css-8.1.0
 
 ### 1.0.0
 
