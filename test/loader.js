@@ -110,16 +110,13 @@ describe('async mode', function () {
       foo: 'bar'
     };
 
-    assert.throws(function () {
-      context = mock(cssSource, null, options, function(){});
-      try {
-        loader.call(context, cssSource);
-      }
-      finally {
-        done();
-      }
-    }, /Unknown elm-css options/);
+    var callback = function (err) {
+      assert.match(err.message, /unknown elm-css option/i);
+      done();
+    };
 
+    context = mock(cssSource, null, options, callback);
+    loader.call(context, cssSource);
   });
 
 });
