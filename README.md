@@ -1,4 +1,4 @@
-# Elm CSS loader [![Travis build Status](https://travis-ci.org/tcoopman/elm-css-webpack-loader.svg?branch=upgrade)](http://travis-ci.org/tcoopman/elm-css-webpack-loader)
+# Elm CSS loader [![npm version](https://badge.fury.io/js/elm-css-webpack-loader.svg)](https://badge.fury.io/js/elm-css-webpack-loader) [![Travis build Status](https://travis-ci.org/tcoopman/elm-css-webpack-loader.svg?branch=upgrade)](http://travis-ci.org/tcoopman/elm-css-webpack-loader)
 
 Webpack loader for [elm-css](https://github.com/rtfeldman/elm-css) library
 
@@ -77,7 +77,17 @@ You can find a more advanced example at
 ### Note about noParse
 
 Even though elm-webpack-loader suggests to set the `noParse` option,
-`elm-css-webpack-loader` requires this option, otherwise it won't work correctly.
+`elm-css-webpack-loader` requires to parse the stylesheet module.
+
+You can work around the problem by using the following regular expression:
+```js
+{
+  module: {
+    noParse: /^((?!Stylesheet).)*\.elm.*$/,
+    ...
+  }
+}
+```
 
 ## Revisions
 
