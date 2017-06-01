@@ -11,7 +11,7 @@ var cachedDependencies = [];
 var validOptions = ['cwd', 'cache', 'yes', 'emitWarning', 'debug'];
 
 var defaultOptions = {
-  cwd: ".",
+  cwd: '.',
   cache: false,
   yes: true
 };
