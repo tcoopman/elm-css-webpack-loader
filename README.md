@@ -77,7 +77,17 @@ You can find a more advanced example at
 ### Note about noParse
 
 Even though elm-webpack-loader suggests to set the `noParse` option,
-`elm-css-webpack-loader` requires this option, otherwise it won't work correctly.
+`elm-css-webpack-loader` requires to parse the stylesheet module.
+
+You can work around the problem by using the following regular expression:
+```js
+{
+  module: {
+    noParse: /^((?!Stylesheet).)*\.elm.*$/,
+    ...
+  }
+}
+```
 
 ## Revisions
 
