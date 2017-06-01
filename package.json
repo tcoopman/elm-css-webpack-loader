@@ -1,17 +1,8 @@
 {
   "name": "elm-css-webpack-loader",
-  "version": "3.1.0",
   "description": "elm-css webpack loader",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha test/*.js"
-  },
+  "version": "3.1.0",
   "author": "Thomas Coopman @tcoopman",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:tcoopman/elm-css-webpack-loader.git"
-  },
   "dependencies": {
     "elm-css": "^0.6.0",
     "loader-utils": "^1.0.3",
@@ -23,5 +14,27 @@
     "chai": "^3.4.1",
     "csslint": "^0.10.0",
     "mocha": "^2.3.4"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "keywords": [
+    "css",
+    "elm",
+    "loader",
+    "webpack"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "webpack": "2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tcoopman/elm-css-webpack-loader.git"
+  },
+  "scripts": {
+    "test": "mocha test/*.js"
   }
 }
