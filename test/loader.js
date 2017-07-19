@@ -8,6 +8,7 @@ var loader = require('../index.js');
 
 var fixturesDir = path.join(__dirname, 'fixtures');
 var cssSource = path.join(fixturesDir, 'Stylesheets.elm');
+var customCssSource = path.join(fixturesDir, 'CustomModuleNameStylesheets.elm');
 
 var toString = Object.prototype.toString;
 
@@ -119,4 +120,22 @@ describe('async mode', function () {
     loader.call(context, cssSource);
   });
 
+  it('compiles the elm code to css with a custom module name', function (done) {
+    var options = {
+      cwd: fixturesDir,
+      module: "CustomModuleNameStylesheets"
+    };
+    // going to use CSSLinter to check there is no actual error
+    // on CSS
+    var callback = function (loaderErr, loaderResult) {
+      var result = CSSLint.verify(loaderResult);
+      _.each(_.map(result.messages, 'type'), function(errTy) {
+        assert.notEqual(errTy,  "error");
+      });
+      done();
+    };
+
+    context = mock(customCssSource, null, options, callback);
+    loader.call(context, customCssSource);
+  });
 });
