@@ -28,7 +28,7 @@
   "license": "MIT",
   "main": "index.js",
   "peerDependencies": {
-    "webpack": "2"
+    "webpack": "3"
   },
   "repository": {
     "type": "git",
