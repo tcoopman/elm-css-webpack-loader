@@ -9,6 +9,7 @@ var loader = require('../index.js');
 var fixturesDir = path.join(__dirname, 'fixtures');
 var cssSource = path.join(fixturesDir, 'Stylesheets.elm');
 var customCssSource = path.join(fixturesDir, 'CustomModuleNameStylesheets.elm');
+var customPortCssSource = path.join(fixturesDir, 'CustomPortNameStylesheets.elm');
 
 var toString = Object.prototype.toString;
 
@@ -137,5 +138,44 @@ describe('async mode', function () {
 
     context = mock(customCssSource, null, options, callback);
     loader.call(context, customCssSource);
+  });
+  
+  it('compiles the elm code to css with a custom port name', function (done) {
+    var options = {
+      cwd: fixturesDir,
+      module: "CustomPortNameStylesheets",
+      stylesheetsPort: "customFiles"
+    };
+    // going to use CSSLinter to check there is no actual error
+    // on CSS
+    var callback = function (loaderErr, loaderResult) {
+      var result = CSSLint.verify(loaderResult);
+      _.each(_.map(result.messages, 'type'), function(errTy) {
+        assert.notEqual(errTy,  "error");
+      });
+      done();
+    };
+
+    context = mock(customPortCssSource, null, options, callback);
+    loader.call(context, customPortCssSource);
+  });
+  
+  it('compiles the elm code to css with a custom path to elm-make', function (done) {
+    var options = {
+      cwd: fixturesDir,
+      pathToMake: path.join(process.cwd(), "node_modules", ".bin", "elm-make")
+    };
+    // going to use CSSLinter to check there is no actual error
+    // on CSS
+    var callback = function (loaderErr, loaderResult) {
+      var result = CSSLint.verify(loaderResult);
+      _.each(_.map(result.messages, 'type'), function(errTy) {
+        assert.notEqual(errTy,  "error");
+      });
+      done();
+    };
+
+    context = mock(cssSource, null, options, callback);
+    loader.call(context, cssSource);
   });
 });
