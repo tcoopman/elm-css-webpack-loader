@@ -13,6 +13,7 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "csslint": "^0.10.0",
+    "elm": "^0.18.0",
     "mocha": "^2.3.4"
   },
   "files": [

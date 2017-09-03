@@ -8,13 +8,15 @@ var temp = require('temp').track();
 
 var cachedDependencies = [];
 
-var validOptions = ['cwd', 'cache', 'yes', 'emitWarning', 'debug', 'module'];
+var validOptions = ['cwd', 'cache', 'yes', 'emitWarning', 'debug', 'module', 'stylesheetsPort', 'pathToMake'];
 
 var defaultOptions = {
   cwd: '.',
   cache: false,
   yes: true,
-  module: 'Stylesheets'
+  module: 'Stylesheets',
+  stylesheetsPort: 'files',
+  pathToMake: undefined,
 };
 
 var getInput = function() {
@@ -67,7 +69,7 @@ module.exports = function run() {
 			callback(new Error('Could not create a temp directory ' + err));
 		}
 
-		elmCss(options.cwd, input, dirPath, options.module)
+		elmCss(options.cwd, input, dirPath, options.module, options.stylesheetsPort, options.pathToMake)
 			.then(function(output) {
 				callback(null, output.map(function(o) { return o.content; }).join(''));
 			})
