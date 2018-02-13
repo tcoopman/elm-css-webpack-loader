@@ -1,7 +1,7 @@
 {
   "name": "elm-css-webpack-loader",
   "description": "elm-css webpack loader",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "author": "Thomas Coopman @tcoopman",
   "dependencies": {
     "elm-css": "^0.6.0",
